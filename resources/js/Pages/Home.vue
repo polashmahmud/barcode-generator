@@ -1,6 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import {Head, router} from '@inertiajs/vue3';
+import PrimaryButton from "@/Components/PrimaryButton.vue";
 </script>
 
 <template>
@@ -8,7 +9,10 @@ import { Head } from '@inertiajs/vue3';
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Barcode Generator</h2>
+            <div class="flex items-center justify-between">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">Barcode Generator</h2>
+                <PrimaryButton @click.prevent="router.visit(route('generate'))">Create New</PrimaryButton>
+            </div>
         </template>
 
         <div class="py-12">
